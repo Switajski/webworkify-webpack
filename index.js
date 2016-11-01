@@ -80,7 +80,7 @@ module.exports = function (fn, options) {
 
     // find the first moduleId from the above list that contains fnString
     var key = potentialFnModuleIds.find(function (moduleId) {
-        var wrapperFuncString = sources[moduleId].toString();
+        var wrapperFuncString = __webpack_require__(moduleId).toString();;
         if (wrapperFuncString.indexOf(fnStringNoSpace) > -1 || wrapperFuncString.indexOf(fnStringWithSpace) > -1) {
           var exp = __webpack_require__(moduleId);
 
